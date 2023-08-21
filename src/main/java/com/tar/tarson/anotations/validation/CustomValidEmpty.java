@@ -7,13 +7,12 @@ import jakarta.validation.Payload;
 import jakarta.validation.groups.Default;
 import org.springframework.http.HttpStatus;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
+//@Repeatable(CustomValidEmpty.List.class)
+@Documented
 @Constraint(validatedBy = CustomNotNullValidator.class)
 public @interface CustomValidEmpty {
     String message() default "";
@@ -25,13 +24,13 @@ public @interface CustomValidEmpty {
     Class<? extends Payload>[] payload() default {};
     boolean checkIsBlank() default true;
     boolean checkIsEmpty() default true;
-    int size() default -1;
 
     Class<? extends RuntimeException> exception() default TarException.class;
     HttpStatus httpStatus() default HttpStatus.BAD_REQUEST;
-    @Target({ElementType.FIELD, ElementType.PARAMETER})
-    @Retention(RetentionPolicy.RUNTIME)
-    public @interface List {
-        CustomValidEmpty[] value();
-    }
+//    @Target({ElementType.FIELD, ElementType.PARAMETER})
+//    @Retention(RetentionPolicy.RUNTIME)
+//    @Documented
+//    public @interface List {
+//        CustomValidEmpty[] value();
+//    }
 }

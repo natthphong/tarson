@@ -15,6 +15,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = CustomCheckSizeValidator.class)
+@Deprecated
 public @interface CustomValidSize {
     String message() default "";
     String errorCode() default "9999";

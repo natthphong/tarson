@@ -1,6 +1,7 @@
 package com.tar.tarson.anotations.process;
 
 import com.tar.tarson.anotations.validation.CustomValidEmpty;
+import com.tar.tarson.utils.NumberUtils;
 import com.tar.tarson.utils.StringUtils;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -16,7 +17,6 @@ public class CustomNotNullValidator implements ConstraintValidator<CustomValidEm
     private String errorDesc;
     private String errorMessage;
     private String errorTitle;
-
     @Override
     public void initialize(CustomValidEmpty constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
@@ -28,14 +28,10 @@ public class CustomNotNullValidator implements ConstraintValidator<CustomValidEm
         errorDesc = constraintAnnotation.errorDesc();
         errorMessage = constraintAnnotation.errorMessage();
         errorTitle = constraintAnnotation.errorTitle();
-
     }
 
     @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
-        System.out.println("check null" +  value);
-        System.out.println(errorMessage);
-        System.out.println("=");
         if (value == null) {
             throwException();
             return false;
@@ -48,7 +44,6 @@ public class CustomNotNullValidator implements ConstraintValidator<CustomValidEm
             throwException();
             return false;
         }
-
         return true;
     }
 

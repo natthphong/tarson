@@ -6,6 +6,8 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.http.HttpStatus;
 
+
+@Deprecated
 public class CustomCheckSizeValidator implements ConstraintValidator<CustomValidSize, Object> {
     private Class<? extends RuntimeException> exceptionClass;
     private HttpStatus httpStatus;
