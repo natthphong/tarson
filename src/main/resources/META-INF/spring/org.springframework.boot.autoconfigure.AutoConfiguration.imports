@@ -1,1 +1,2 @@
 com.tar.tarson.configuration.TarSonAutoConfiguration
+com.tar.tarson.anotations.process.ValidationConfig
