@@ -206,7 +206,6 @@ public class TarSonConverter {
                 }
             }
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
             throw new TarException(e.getMessage());
         }
     }
